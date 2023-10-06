@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/Jhnvlglmlbrt/server-side-session-auth/api"
+	"github.com/Jhnvlglmlbrt/server-side-session-auth/usecases"
 	_ "github.com/lib/pq"
 )
 
@@ -37,12 +38,12 @@ func initDB() {
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbname)
 
-	api.Db, err = sql.Open("postgres", psqlInfo)
+	usecases.Db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
 	}
 
-	err = api.Db.Ping()
+	err = usecases.Db.Ping()
 	if err != nil {
 		panic(err)
 	}

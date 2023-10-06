@@ -4,10 +4,10 @@ import (
 	"time"
 )
 
-var users = map[string]string{
-	"user1": "password1",
-	"user2": "password2",
-}
+// var users = map[string]string{
+// 	"user1": "password1",
+// 	"user2": "password2",
+// }
 
 var Sessions = map[string]Session{}
 
@@ -18,16 +18,16 @@ type Session struct {
 	Expiry   time.Time
 }
 
-type Credentials struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
+// type Credentials struct {
+// 	Username string `json:"username"`
+// 	Password string `json:"password"`
+// }
 
 func (s Session) isExpired() bool {
 	return s.Expiry.Before(time.Now())
 }
 
-func VerifyPassword(username, password string) bool {
-	expectedPassword, ok := users[username]
-	return ok && expectedPassword == password
-}
+// func VerifyPassword(username, password string) bool {
+// 	expectedPassword, ok := users[username]
+// 	return ok && expectedPassword == password
+// }
